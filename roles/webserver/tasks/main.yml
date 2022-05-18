@@ -5,17 +5,19 @@
   yum:
     name: httpd
     state: present
+  tags: install_apache
 
 - name: Start the httpd service:
   service:
     name: httpd
     state: started
     enabled: yes
+  tags: http_service_start
       
 - name: Add firewall rules 
   firewalld:
     port: "{{ http_port }}"/tcp
-    permanent: true
+    permanent: yes
     state: enabled
     immediate: yes
     notify: "Restart firewalld"   
@@ -23,13 +25,13 @@
 
 - name: Create directory for apache webserver
   file:
-    path: /var/www/mywebserver01
+    path: var/www/mywebserver01
     state: directory
 
 - name: Copy index file to apache directory
   template:
-    src: "index.html.j2"
-    dest: "/var/www/mywebserver01/index.html"
+    src: index.html.j2
+    dest: /var/www/mywebserver01/index.html
 
 
 - name: Copy conf file
