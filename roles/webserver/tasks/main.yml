@@ -25,13 +25,13 @@
 
 - name: Create directory for apache webserver
   file:
-    path: var/www/mywebserver01
+    path: var/www/"{{ http_host }}"
     state: directory
 
 - name: Copy index file to apache directory
   template:
     src: index.html.j2
-    dest: /var/www/mywebserver01/index.html
+    dest: /var/www/"{{ http_host }}"/index.html
 
 
 - name: Copy conf file
