@@ -20,8 +20,8 @@
     permanent: yes
     state: enabled
     immediate: yes
-    notify: "Restart firewalld"   
-    ignore_errors: yes
+  notify: restart firewalld  
+  ignore_errors: true
 
 - name: Create directory for apache webserver
   file:
@@ -38,3 +38,4 @@
   template:
     src: webserver.conf.j2
     dest: /etc/httpd/conf.d/"{{ http_conf }}"
+  notify: restart httpd
