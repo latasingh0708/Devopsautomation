@@ -1,0 +1,6 @@
+---
+# defaults file for mywebserver
+
+http_host: "mywebserver01.com"
+http_conf: "mywebserver.conf"
+http_port: "8080"

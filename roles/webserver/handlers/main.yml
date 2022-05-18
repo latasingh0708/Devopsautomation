@@ -1,0 +1,13 @@
+---
+# This is the handler file of mywebserver
+
+- name: Restart the httpd service
+  service:
+    name: httpd
+    starte: restarted
+
+- name: Restart the firewalld service
+  service: 
+    name: firewalld
+    state: restarted
+
