@@ -1,6 +1,6 @@
 #This playbook is for apache mywebserver
 
-- name: This is role based playbook
+- name: This is role based playbook for apache server installation
   hosts: all
   become: yes 
   roles:
