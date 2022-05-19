@@ -4,7 +4,7 @@
 - name: Restart the httpd service
   service:
     name: httpd
-    starte: restarted
+    state: restarted
 
 - name: Restart the firewalld service
   service: 
